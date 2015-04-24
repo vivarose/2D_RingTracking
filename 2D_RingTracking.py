@@ -1,18 +1,19 @@
 #created by Aaron Goldfain and Viva Horowitz
 #April 24, 2015
 
+
 import numpy as np
 
-def hough2Dtrack(data, n_centers, threshold = 0.5, draw_dots = False, draw_mean = False, return_dots = False, outfolder = None, static = True):
-    #tracks a ring pattern in 2D. Locates particles using the Hough transfrom algorithm (center_find)
-    #data is a stack of images to track particles in
-    #n_centers is the number of ring patterns to track
-    #theshold is the treshold used in center_find
-    #draw_dots = True draws a label and a spot on each image from data where each center was found
-    #draw_mean = True Uses the mean coordinate from each track as the position of the spot to be drawn
-    #return_dots = True, retrun the images with the spots drawn on them
-    #outfolder = location to save images with spots/labels
-    #static = True uses first location of a particle to link tracks. Use False if the particle is moving
+def RingTracking2D(data, n_centers, threshold = 0.5, draw_dots = False, draw_mean = False, return_dots = False, outfolder = None, static = True):
+    # tracks a ring pattern in 2D. Locates particles using the Hough transfrom algorithm (center_find)
+    # data is a stack of images to track particles in, stored as xyt hyperstack
+    # n_centers is the number of ring patterns to track
+    # theshold is the treshold used in center_find
+    # draw_dots = True draws a label and a spot on each image from data where each center was found
+    # draw_mean = True Uses the mean coordinate from each track as the position of the spot to be drawn
+    # return_dots = True, retrun the images with the spots drawn on them
+    # outfolder = location to save images with spots/labels
+    # static = True uses first location of a particle to link tracks. Use False if the particle is moving
     #
     #
     # returns an array containing the coordinates of the ring centers at each frame
